@@ -24,10 +24,18 @@ jobs:
 
           gpg-enabled: "false"
 
-          git-release-bot-name: "Addono"
+          git-release-bot-name: "Addono-release-bot"
           git-release-bot-email: "hi@aknapen.nl"
 
           access-token: ${{ secrets.GITHUB_TOKEN }}
 
-      - run: git pull
-        name: Move head to tip
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-java@v1
+        with:
+          java-version: 11
+
+      - name: Publish package
+        run: mvn -B deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
