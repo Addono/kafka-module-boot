@@ -37,6 +37,6 @@ jobs:
           java-version: 11
 
       - name: Release our snapshot
-        run: mvn -B deploy
+        run: sudo mvn -B deploy
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
