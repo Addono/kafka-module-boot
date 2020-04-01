@@ -24,19 +24,10 @@ jobs:
 
           gpg-enabled: "false"
 
-          git-release-bot-name: "release-bot"
-          git-release-bot-email: "release-bot@example.com"
+          git-release-bot-name: "Addono"
+          git-release-bot-email: "hi@aknapen.nl"
 
           access-token: ${{ secrets.GITHUB_TOKEN }}
 
       - run: git pull
         name: Move head to tip
-
-      - uses: actions/setup-java@v1
-        with:
-          java-version: 11
-
-      - name: Release our snapshot
-        run: sudo mvn -B deploy
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
