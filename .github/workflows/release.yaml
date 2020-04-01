@@ -29,7 +29,7 @@ jobs:
 
           access-token: ${{ secrets.GITHUB_TOKEN }}
 
-      - run: git reset --hard && git clean -dffx && git pull
+      - run: git reset --hard && sudo git clean -dffx && git pull
 
       - uses: actions/setup-java@v1
         with:
